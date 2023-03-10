@@ -1,0 +1,46 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "javascript.format.enable": false,
+    "flow.useNPMPackagedFlow": true,
+    "eslint.packageManager": "yarn",
+    "git.autofetch": true,
+    "editor.tabSize": 2,
+    "breadcrumbs.enabled": true,
+    "eslint.lintTask.enable": true,
+    "gitlens.codeLens.enabled": false,
+    "files.exclude": {
+      "**/.classpath": true,
+      "**/.project": true,
+      "**/.settings": true,
+      "**/.factorypath": true
+    },
+    "java.configuration.updateBuildConfiguration": "disabled",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.run": "onSave"
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "flowtype.flow-for-vscode",
+      "christian-kohler.path-intellisense",
+      "msjsdiag.vscode-react-native",
+      "eamodio.gitlens",
+      "nucllear.vscode-extension-auto-import",
+      "esbenp.prettier-vscode",
+      "ryu1kn.partial-diff"
+    ]
+  }
+}
