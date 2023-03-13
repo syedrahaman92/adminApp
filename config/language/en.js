@@ -1,0 +1,17 @@
+export default {
+  PUBLISH_title: "Create New",
+  PUBLISH_blankImageTitle: "Add Images",
+  PUBLISH_venueTitle: "Venue Type",
+  PUBLISH_captionTitle: "Caption",
+  PUBLISH_captionPlaceHolder: "Type here",
+  PUBLISH_AddPlaceName: "Eatery Name",
+  PUBLISH_AddLocation: "Add Location",
+  PUBLISH_EditLocation: "Edit Location",
+  PUBLISH_mapPlaceHolder: "Add location marker at...",
+  PUBLISH_mapAddLocationGuide: "Or, tap to add marker",
+  PUBLISH_mapEditLocationGuide: "Tap anywhere to reposition",
+  PUBLISH_venueStreetFood: "Street food",
+  PUBLISH_venueRestaurant: "Restaurant",
+  PUBLISH_venueEvent: "Event",
+  PUBLISH_venuePrivate: "Private venue",
+}

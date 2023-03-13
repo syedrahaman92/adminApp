@@ -1,0 +1,17 @@
+export default {
+  PUBLISH_title: "नया बनाएँ",
+  PUBLISH_blankImageTitle: "छवि जोड़ें",
+  PUBLISH_venueTitle: "स्थल प्रकार चुनें",
+  PUBLISH_captionTitle: "शीर्षक दें",
+  PUBLISH_captionPlaceHolder: "यहां टाइप करें",
+  PUBLISH_AddPlaceName: "स्थान का नाम जोड़ें",
+  PUBLISH_AddLocation: "स्थान जोड़ें",
+  PUBLISH_EditLocation: "स्थान संपादित करें",
+  PUBLISH_mapPlaceHolder: "स्थान मार्कर जोड़ें...",
+  PUBLISH_mapAddLocationGuide: "या जोड़ने के लिए कहीं भी टैप करें",
+  PUBLISH_mapEditLocationGuide: "बदलने के लिए कहीं भी टैप करें",
+  PUBLISH_venueStreetFood: "स्ट्रीट फूड",
+  PUBLISH_venueRestaurant: "रेस्तरां",
+  PUBLISH_venueEvent: "समारोह",
+  PUBLISH_venuePrivate: "निजी स्थल",
+}

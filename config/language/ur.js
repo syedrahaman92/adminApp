@@ -1,0 +1,17 @@
+export default {
+  PUBLISH_title: "نیا بنائیں",
+  PUBLISH_blankImageTitle: "تصویر شامل کریں",
+  PUBLISH_venueTitle: "مقام کی قسم منتخب کریں",
+  PUBLISH_captionTitle: "کیپشنز شامل کریں",
+  PUBLISH_captionPlaceHolder: "یہاں ٹائپ کریں",
+  PUBLISH_AddPlaceName: "جگہ کا نام شامل کریں",
+  PUBLISH_AddLocation: "مقام شامل کریں",
+  PUBLISH_EditLocation: "مقام میں ترمیم کریں",
+  PUBLISH_mapPlaceHolder: "...مقام مارکر شامل کریں",
+  PUBLISH_mapAddLocationGuide: "یا شامل کرنے کے لئے کہیں بھی کلک کریں",
+  PUBLISH_mapEditLocationGuide: "ری سیٹ کرنے کے لئے کہیں بھی کلک کریں",
+  PUBLISH_venueStreetFood: "اسٹریٹ فوڈ",
+  PUBLISH_venueRestaurant: "ریستوراں",
+  PUBLISH_venueEvent: "مجمع",
+  PUBLISH_venuePrivate: "نجی مقام",
+}
