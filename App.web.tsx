@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import {View, Text, TouchableOpacity, StyleSheet} from "react-native"
+import {checkCount} from "./util"
 
 const App = () => {
   const [count, setCount] = useState(0)
@@ -11,6 +12,7 @@ const App = () => {
       </TouchableOpacity>
 
       <Text>You clicked {count} times!</Text>
+      <Text>{checkCount(count)}</Text>
     </View>
   )
 }
