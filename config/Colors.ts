@@ -1,4 +1,4 @@
-import {DarkTheme, DefaultTheme} from "react-native-paper"
+import {MD3DarkTheme, DefaultTheme} from "react-native-paper"
 
 export const lightTheme = {
   ...DefaultTheme,
@@ -17,10 +17,10 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-  ...DarkTheme,
+  ...MD3DarkTheme,
   roundness: 8,
   colors: {
-    ...DarkTheme.colors,
+    ...MD3DarkTheme.colors,
 
     primary: "#ed8eb5",
     accent: "#F1D5A4",
@@ -28,6 +28,6 @@ export const darkTheme = {
 
     // used by react navigation
     border: "#ffffff",
-    card: DarkTheme.colors.surface, // must be same as surface
+    card: MD3DarkTheme.colors.surface, // must be same as surface
   },
 }
