@@ -14,9 +14,9 @@ const linking: LinkingOptions<RootStackScreenParams> = {
     screens: {
       Main: {
         screens: {
-          Sample: {
+          Routes: {
             screens: {
-              AfterLogin: "afterlogin",
+              Routes: "routes",
             },
           },
           Drivers: "drivers",

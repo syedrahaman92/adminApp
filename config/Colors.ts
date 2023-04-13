@@ -1,10 +1,10 @@
-import {MD3DarkTheme, DefaultTheme} from "react-native-paper"
+import {MD3DarkTheme, MD3LightTheme} from "react-native-paper"
 
 export const lightTheme = {
-  ...DefaultTheme,
+  ...MD3LightTheme,
   roundness: 8,
   colors: {
-    ...DefaultTheme.colors,
+    ...MD3LightTheme.colors,
 
     primary: "#ed8eb5", // darker version of our pink
     accent: "#F1D5A4", // our gold
@@ -12,7 +12,7 @@ export const lightTheme = {
 
     // used by react navigation
     border: "#c7c7cc",
-    card: DefaultTheme.colors.surface, // must be same as surface
+    card: MD3LightTheme.colors.surface, // must be same as surface
   },
 }
 

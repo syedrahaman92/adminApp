@@ -6,6 +6,6 @@ export type RootStackScreenParams = {
 }
 
 export type MainScreenParams = {
-  Sample: undefined
+  RoutesStack: undefined
   Drivers: undefined
 }

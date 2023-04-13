@@ -84,7 +84,7 @@ export async function fireQuery(
   } catch (error: any) {
     if (!error.response && !error.request) {
       // Handling network fetch exceptions
-      throw logger.logE(
+      logger.logE(
         "Network fetch exception GQL:" +
           JSON.stringify(error) +
           "\n -- url is " +
@@ -92,6 +92,7 @@ export async function fireQuery(
           "\n -- request is " +
           JSON.stringify(error.message)
       )
+      throw error.message
     } else if (error.response.status >= 400) {
       // Handling HTTP errors
       if (error.response.status === 401) {
@@ -99,7 +100,7 @@ export async function fireQuery(
         logout()
       } else {
         // logging all other HTTP errors apart from 401
-        throw logger.logE(
+        logger.logE(
           "Http error at: " +
             JSON.stringify(error) +
             "\n -- url is " +
@@ -107,12 +108,12 @@ export async function fireQuery(
             "\n -- request is " +
             JSON.stringify(error.message)
         )
+        throw error.message
       }
     } else {
       // Handling GraphQL errors
-      throw logger.logE(
-        JSON.stringify(error) + "  body: " + JSON.stringify(error.response.errors)
-      )
+      logger.logE(JSON.stringify(error) + "  body: " + JSON.stringify(error.response.errors))
+      throw error.response.errors
     }
   }
 

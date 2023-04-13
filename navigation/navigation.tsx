@@ -8,11 +8,13 @@ import * as React from "react"
 
 import {useTheme} from "../common/util"
 import ModalScreen from "../modals/modal-screen"
-import {SampleStack} from "../sample"
+import {RoutesStack} from "../routes"
 import DriversScreen from "../drivers/drivers"
 import {RootStackScreenParams, MainScreenParams} from "./types"
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
+import {useAppSelector} from "../common/hooks"
+import {AuthNavigator} from "../auth"
 
 /**
  * A root stack navigator is often used for displaying modals on top of all other content.
@@ -21,18 +23,23 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 const RootStack = createNativeStackNavigator<RootStackScreenParams>()
 
 export function RootNavigator() {
-  return (
-    <RootStack.Navigator>
-      <RootStack.Screen
-        name="Main"
-        component={BottomTabNavigator}
-        options={{headerShown: false}}
-      />
-      <RootStack.Group screenOptions={{presentation: "modal"}}>
-        <RootStack.Screen name="Modal" component={ModalScreen} />
-      </RootStack.Group>
-    </RootStack.Navigator>
-  )
+  const loggedIn = useAppSelector(state => state.auth.loggedIn)
+  if (loggedIn) {
+    return (
+      <RootStack.Navigator>
+        <RootStack.Screen
+          name="Main"
+          component={BottomTabNavigator}
+          options={{headerShown: false}}
+        />
+        <RootStack.Group screenOptions={{presentation: "modal"}}>
+          <RootStack.Screen name="Modal" component={ModalScreen} />
+        </RootStack.Group>
+      </RootStack.Navigator>
+    )
+  } else {
+    return <AuthNavigator />
+  }
 }
 
 /**
@@ -46,22 +53,28 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Sample"
-      shifting={true}
-      activeColor={currTheme.colors.primary}
-      barStyle={{backgroundColor: currTheme.colors.surface}}>
+      initialRouteName="RoutesStack"
+      backBehavior={"initialRoute"}
+      screenOptions={() => ({
+        tabBarHideOnKeyboard: true,
+        headerShown: false,
+        tabBarStyle: {
+          elevation: 4,
+        },
+      })}>
       <BottomTab.Screen
-        name="Sample"
-        component={SampleStack}
+        name="RoutesStack"
+        component={RoutesStack}
         options={{
-          tabBarIcon: ({color}) => <TabBarIcon name="lock" color={color} />,
+          tabBarIcon: ({color}) => <TabBarIcon name="map-marker-path" color={color} />,
+          title: "Routes",
         }}
       />
       <BottomTab.Screen
         name="Drivers"
         component={DriversScreen}
         options={{
-          tabBarIcon: ({color}) => <TabBarIcon name="group" color={color} />,
+          tabBarIcon: ({color}) => <TabBarIcon name="moped-outline" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -75,5 +88,5 @@ function TabBarIcon(props: {
   name: React.ComponentProps<typeof MaterialCommunityIcons>["name"]
   color: string
 }) {
-  return <MaterialCommunityIcons size={20} style={{marginBottom: -3}} {...props} />
+  return <MaterialCommunityIcons size={30} style={{marginBottom: -3}} {...props} />
 }

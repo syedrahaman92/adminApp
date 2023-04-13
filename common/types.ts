@@ -2,6 +2,7 @@ import {Action} from "./libs/structured-actions"
 import {getRandomInt} from "./util"
 //import {InitialState as reduxState} from "../app-state-manager/index"
 import {defaultReduxState as reduxState} from "./state"
+import {reduxStore} from "./libs/init"
 
 // needed only to switch between old and new app
 const defaultReduxState = reduxState
@@ -17,6 +18,7 @@ declare global {
 }
 
 export type AppState = typeof defaultReduxState
+export type AppDispatch = typeof reduxStore.dispatch
 
 // since the switch to react navigation
 // we don't have an easy to access list of all screen

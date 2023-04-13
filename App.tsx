@@ -1,3 +1,5 @@
+import {enableScreens} from "react-native-screens"
+enableScreens(false)
 import React from "react"
 import {Provider as PaperProvider} from "react-native-paper"
 import {QueryClientProvider} from "react-query"
@@ -32,7 +34,7 @@ export default function App() {
       <PaperProvider theme={currTheme}>
         <QueryClientProvider client={queryClient}>
           <Provider store={reduxStore}>
-            <NavigationContainer linking={LinkingConfiguration} theme={currTheme}>
+            <NavigationContainer linking={LinkingConfiguration}>
               <RootNavigator />
             </NavigationContainer>
           </Provider>
