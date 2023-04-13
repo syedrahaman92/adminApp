@@ -9,6 +9,7 @@ export const lightTheme = {
     primary: "#ed8eb5", // darker version of our pink
     accent: "#F1D5A4", // our gold
     error: "#82013d", // a more pink version of an error color
+    lightGreen: "#378A46",
 
     // used by react navigation
     border: "#c7c7cc",
@@ -25,6 +26,7 @@ export const darkTheme = {
     primary: "#ed8eb5",
     accent: "#F1D5A4",
     error: "#82013d",
+    lightGreen: "#378A46",
 
     // used by react navigation
     border: "#ffffff",

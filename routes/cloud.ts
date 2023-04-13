@@ -1,7 +1,8 @@
 import {queryServer} from "../common/cloud"
 import {dbState} from "../common/state"
+import {DeliveryRoute} from "./types"
 
-export async function getRecentRoutes() {
+export async function getRecentRoutes(): Promise<{data: {getLatestTrips: DeliveryRoute[]}}> {
   const graphQLQuery =
     `
     query{

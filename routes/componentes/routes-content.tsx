@@ -1,9 +1,10 @@
 import * as React from "react"
 import {FlatList, StyleSheet, View} from "react-native"
 import {RouteCard} from "./route-card"
+import {DeliveryRoute} from "../types"
 
 type Props = {
-  data: any[]
+  data: DeliveryRoute[]
 }
 
 export function RoutesContent({data}: Props) {
@@ -11,7 +12,7 @@ export function RoutesContent({data}: Props) {
     <View>
       <FlatList
         data={data}
-        renderItem={({item}: {item: any}) => <RouteCard route={item} />}
+        renderItem={({item}: {item: DeliveryRoute}) => <RouteCard route={item} />}
         keyExtractor={(item, index) => index.toString()}
       />
     </View>

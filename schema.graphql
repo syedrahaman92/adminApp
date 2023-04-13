@@ -1,0 +1,1636 @@
+type ActiveEateries {
+  PlaceName: String!
+  PlaceID: Int!
+}
+
+type AvailableIntervalDetails {
+  pickupAreaID: Int!
+  placeName: String!
+  areaLocInfo: LocInfo!
+  serviceIntervals: [interval!]!
+  schedulingIntervals: [interval!]!
+  weeklySlots: [WeeklySlot!]!
+  pickupAreaName: String!
+}
+
+type BlockedUsersList {
+  userID: Int!
+  userName: String!
+  name: String!
+  profileImageURL: String!
+}
+
+type BookingDetails {
+  tourID: Int!
+  tourName: String!
+  tourPrice: Float!
+  guideName: String!
+  customerName: String!
+  bookingID: Int!
+  tourBookingDate: String!
+  paymentStatus: String!
+  bookingStatus: String!
+  refundStatus: String!
+  startTime: String!
+  endTime: String!
+  tourCancelDate: String!
+  paidToGuide: Float!
+  guidePaymentStatus: String!
+  bookedTourStartTime: String!
+  bookedTourEndTime: String!
+  attendingPeople: Int!
+  totalPrice: Float!
+  tourVisited: Boolean!
+  guideProfileImageURL: String!
+  customerProfileImageURL: String!
+  paymentMethodId: String!
+  imageSpecs: [TourImageSpec]!
+  currency: String!
+  description: String!
+  guideId: Int!
+  customerId: Int!
+}
+
+type BookingInfo {
+  bookingID: Int!
+  clientSecretKey: String!
+}
+
+type CartOfTheWeek {
+  placeName: String!
+  description: String!
+  placeID: Int!
+  cartAreaID: Int!
+  locInfo: LocInfo!
+  imageSpecs: [ImageSpec!]!
+  promotionStartDate: String!
+  promotionEndDate: String!
+  discountAmount: Int!
+  postCount: Int!
+  promotionRedeemed: Boolean!
+  promotionSoldOut: Boolean!
+}
+
+input ChatMessage {
+  targetUsers: [Int!]!
+  text: String!
+  title: String!
+  message: String!
+}
+
+type ChatUsers {
+  userID: Int!
+  name: String!
+  userName: String!
+  profileImageURL: String!
+}
+
+type choice {
+  optionTitle: String!
+  title: String!
+  description: String!
+  price: Float!
+  unavailabilityReason: String!
+  squareChoiceID: String!
+  cloverChoiceID: String!
+}
+
+input Choice {
+  optionTitle: String!
+  title: String!
+  description: String!
+  price: Float!
+  unavailabilityReason: String!
+  squareChoiceID: String = ""
+  cloverChoiceID: String = ""
+}
+
+input cloverToken {
+  placeID: Int!
+  accessToken: String!
+  merchantID: String!
+  lastUpdated: String!
+}
+
+type CloverTokens {
+  placeID: Int!
+  accessToken: String!
+  merchantID: String!
+  lastUpdated: String!
+}
+
+input codeDetails {
+  code: String!
+  unit: UnitType!
+  isGiftCard: Boolean!
+  codeValue: Float!
+  currency: String!
+}
+
+type CodeDetails {
+  code: String!
+  unit: UnitType!
+  isGiftCard: Boolean!
+  codeValue: Float!
+  currency: String!
+}
+
+type Comment {
+  content: String
+  userID: Int
+  addedAt: String
+  userName: String
+  profileImageURL: String
+}
+
+type commitmentDay {
+  day: String!
+  date: String!
+  intervals: [commitmentIntervalStats!]!
+}
+
+input CommitmentDays {
+  day: String!
+  date: String!
+  intervals: [CommitmentIntervalStats!]!
+}
+
+input CommitmentDetails {
+  pickupAreaID: Int!
+  serviceIntervals: [Interval!]!
+  schedulingIntervals: [CommitmentInterval!]!
+  commitmentDate: String!
+}
+
+type commitmentInterval {
+  intervalStart: String!
+  intervalEnd: String!
+}
+
+input CommitmentInterval {
+  intervalStart: String!
+  intervalEnd: String!
+}
+
+type commitmentIntervalStats {
+  intervalStart: String!
+  intervalEnd: String!
+  isInWaitList: Boolean!
+  autoAcceptRoutes: Boolean!
+}
+
+input CommitmentIntervalStats {
+  intervalStart: String!
+  intervalEnd: String!
+  isInWaitList: Boolean!
+  autoAcceptRoutes: Boolean!
+}
+
+type commitments {
+  pickupAreaID: Int!
+  placeName: String
+  areaLocInfo: LocInfo
+  commitmentIntervals: [commitmentDay!]!
+  pickupAreaName: String!
+}
+
+input Commitments {
+  pickupAreaID: Int!
+  commitmentIntervals: [CommitmentDays!]!
+}
+
+type DailySlot {
+  day: String!
+  date: String!
+  intervals: [IntervalStats!]!
+}
+
+input deliveryAddress {
+  id: String!
+  name: String!
+  phone: String!
+  address: String!
+  locInfo: locInfo!
+  routeGuide: String = ""
+  addressType: String!
+  lastSelectedAt: String!
+  isPhoneVerified: Boolean!
+}
+
+type DeliveryAddress {
+  id: String!
+  name: String!
+  phone: String!
+  address: String!
+  locInfo: LocInfo!
+  routeGuide: String!
+  addressType: String!
+  lastSelectedAt: String!
+  isPhoneVerified: Boolean!
+}
+
+type deliveryBanner {
+  imageLink: String!
+  openUrlLink: String
+  isClickable: Boolean
+  pickupareaID: Int
+  screenParam: ScreenParam
+}
+
+input DeliveryBanner {
+  imageLink: String!
+  openUrlLink: String
+  isClickable: Boolean
+  pickupareaID: Int
+  screenParam: screenParam
+}
+
+type DeliveryOrderPrerequisites {
+  deliveryIntervals: [strIntervalTimestamp]!
+  drivingCost: Float!
+  drivingDistance: Float!
+  logisticsFeePercent: Float!
+  promotionalLogisticsFeePercent: Float!
+  minETA: Int!
+  maxETA: Int!
+}
+
+type DeliveryRoute {
+  routeID: Int!
+  driverID: Int!
+  routeStatus: String!
+  assignedTasksCount: Int!
+  pickupAreaID: Int!
+  routeReleasedAt: String!
+  routeCompletedAt: String!
+  schedulingIntervalStart: String!
+  schedulingIntervalEnd: String!
+  deliveryLocation: LocInfo!
+  cutoffTime: String!
+  driverTotalEarnings: Float!
+  currency: String!
+  routeTasks: [RouteTask]!
+  driverName: String!
+  driverCurrentLocation: location!
+  eligibleDrivers: [Int!]
+  deliveryTax: Float!
+  isPool: Boolean!
+}
+
+input dob {
+  day: Int!
+  month: Int!
+  year: Int!
+}
+
+type Dob {
+  day: Int
+  month: Int
+  year: Int
+}
+
+input DocumentContainer {
+  studentIDUrl: String!
+  govtIDUrl: String!
+  guideType: String!
+  existingTourLink: String!
+}
+
+type DriverBadgeDetails {
+  driverID: Int!
+  driverProfileImageURL: String!
+  driverFullName: String!
+  isInWaitList: Boolean!
+}
+
+type DriverBreakTime {
+  breakStartTime: String
+  breakEndTime: String
+}
+
+type DriverCommitmentDetails {
+  pickupAreaID: Int
+  placeName: String
+  serviceIntervals: [interval!]!
+  schedulingIntervals: [commitmentInterval!]!
+  commitmentDate: String
+  areaLocInfo: LocInfo
+}
+
+type driverCommitmentParams {
+  weekNumber: Int!
+  year: Int!
+  driverCommitments: commitments!
+}
+
+input DriverCommitmentParams {
+  weekNumber: Int!
+  year: Int!
+  driverCommitments: Commitments!
+}
+
+type DriverContactInfo {
+  driverName: String!
+  driverImageURL: String!
+  driverPhone: String!
+  driverEmail: String!
+}
+
+input DriverDetails {
+  driverFullName: String!
+  driverEmail: String!
+  driverPhone: String!
+  driverImageURL: String!
+  drivingLicenseID: String!
+  isDriverInsured: Boolean!
+  vehicleModel: String!
+  vehicleColor: String!
+  ssNumber: String
+  address: postalAddress
+  websiteURL: String
+  dob: dob
+}
+
+type DriverProfileDetails {
+  driverFullName: String
+  driverEmail: String
+  driverPhone: String
+  driverImageURL: String
+  drivingLicenseID: String
+  isDriverInsured: Boolean
+  vehicleModel: String
+  vehicleColor: String
+  isEmailVerified: Boolean
+  driverStripeAccountID: String
+  verificationStatus: String
+  currency: String
+  isOnline: Boolean
+  driverCommitments: [DriverCommitmentDetails!]!
+  driverStats: DriverStats!
+  ssNumber: String
+  address: PostalAddress!
+  websiteURL: String
+  dob: Dob!
+  stripeDetailsSubmitted: Boolean
+  stripeChragesEnabled: Boolean
+  dropOffTime: Int
+  breakStartTime: String
+  breakEndTime: String
+  commitments: [driverCommitmentParams!]!
+  driverLevel: Int!
+}
+
+type DriverStats {
+  totalEarnings: Float
+  todayEarnings: Float
+  totalTransferableAmount: Float
+  totalTransferredAmount: Float
+  totalTaxAmount: Float
+  todayTaxAmount: Float
+}
+
+type featuredPlaces {
+  places: [PlaceDetails]!
+  bombshellDishes: [PopularBombshellDishes]!
+}
+
+enum FeedSourceName {
+  everyone
+  following
+  someone
+}
+
+enum FilterOrderBy {
+  past
+  new
+}
+
+type foodOrder {
+  orderID: Int!
+  placeID: Int!
+  cartAreaID: Int!
+  placeName: String!
+  items: [orderItem!]!
+  totalPrice: Float!
+  paymentMethodID: String!
+  phone: String!
+  estimatedTime: Float!
+  customerID: Int!
+  customerName: String!
+  status: OrderStatusName!
+  createdAt: String!
+  acceptedAt: String!
+  rejectedAt: String!
+  readyAt: String!
+  paymentStatus: String!
+  refundStatus: String!
+  paymentIntentID: String!
+  refundID: String!
+  email: String!
+  rejectionReason: String!
+  restaurantTipAmount: Float!
+  orderType: String!
+  driverTipsAmount: Float!
+  drivingDistance: Float!
+  driverID: Int!
+  driverAmount: Float!
+  driverPaymentIntentID: String!
+  driverPaymentStatus: String!
+  kartbitesFee: Float!
+  placeImageURL: String!
+  customerProfileImageURL: String!
+  placeAddress: String!
+  currency: String!
+  ownerID: Int!
+  estimatedTimeDifference: Int!
+  cancelledAt: String!
+  deliveryAddress: String!
+  deliveryLocInfo: LocInfo!
+  acceptanceRequiredCount: Int!
+  isBatchedOrder: Boolean!
+  routeID: Int!
+  deliveredAt: String!
+  pickedupAt: String!
+  pickupAreaID: Int
+  schedulingInterval: strIntervalTimestamp!
+  customerChargedTotal: Float!
+  kartbitesCutFromDriverPay: Float!
+  subscriptionFeeTaken: Float!
+  logisticsFeeTaken: Float!
+  drivingCost: Float!
+  estimatedPickupTime: String!
+  driverAcceptedAt: String!
+  eateryMaxAcceptanceTime: Int!
+  failureReason: String!
+  idempotenceID: String!
+  netTotal: Float!
+  taxPercent: Float!
+  driverHandlingFee: Float!
+  eateryHandlingFee: Float!
+  reimbursedAmount: Float!
+  receivedByDevices: [String!]!
+  appliedCodeDetails: CodeDetails!
+  isSurveyed: Boolean!
+  isPreorder: Boolean
+  placeType: String!
+  squareOrderID: String
+  totalTipAmount: Float
+  tipSpecVersion: Int
+  isScheduledForFutureInterval: Boolean!
+  frequentOrderReminder: Boolean!
+  cloverOrderID: String
+  squareOrderStatus: String
+  squareOrderFailureReason: String
+  tipAfterReviewAmount: Float
+  driverContactInfo: DriverContactInfo!
+}
+
+input FoodOrder {
+  cartAreaID: Int!
+  placeID: Int!
+  items: [OrderItem!]!
+  placeName: String!
+  totalPrice: Float!
+  paymentMethodID: String!
+  phone: String!
+  estimatedTime: Float!
+  createdAt: String!
+  customerID: Int!
+  customerName: String!
+  status: OrderStatusName!
+  email: String!
+  restaurantTipAmount: Float!
+  orderType: OrderTypeName = takeOut
+  driverTipsAmount: Float = 0
+  drivingDistance: Float = 0
+  deliveryAddress: String = ""
+  placeImageURL: String = ""
+  pickupAreaID: Int
+  schedulingInterval: StrIntervalTimestamp!
+  deliveryLocInfo: locInfo!
+  drivingCost: Float = 0
+  idempotenceID: String!
+  netTotal: Float = 0
+  appliedCodeDetails: codeDetails!
+  isPreorder: Boolean
+  totalTipAmount: Float
+  tipSpecVersion: Int
+  isScheduledForFutureInterval: Boolean!
+}
+
+type FreeFoodCredit {
+  availableCredit: Float!
+  pendingCredit: Float!
+}
+
+input imageSpec {
+  path: String!
+  lat: Float!
+  lng: Float!
+  width: Float!
+  height: Float!
+  timestamp: String!
+  DishName: String!
+  BombshellCount: Int!
+  isIndexed: Boolean!
+  ReactionCount: Int!
+}
+
+type ImageSpec {
+  path: String!
+  lat: Float!
+  lng: Float!
+  width: Float!
+  height: Float!
+  timestamp: String!
+  dishName: String!
+  bombshellCount: Int!
+  isIndexed: Boolean!
+  reactionCount: Int!
+}
+
+input InputFilterParams {
+  searchFor: String!
+  since: String!
+  until: String!
+}
+
+input InputUser {
+  name: String!
+  email: String!
+  password: String!
+}
+
+type interval {
+  intervalStart: String!
+  intervalEnd: String!
+}
+
+input Interval {
+  intervalStart: String!
+  intervalEnd: String!
+}
+
+type IntervalStats {
+  intervalStart: String!
+  intervalEnd: String!
+  requiredDriverCount: Int!
+  scheduledDrivers: [DriverBadgeDetails!]!
+}
+
+enum ItemStatusName {
+  completed
+}
+
+type LikedImage {
+  imagePath: String!
+  status: String!
+}
+
+type ListItem {
+  cartAreaID: Int
+  placeID: Int
+  personalNote: String
+  addedAt: String
+  Tags: [String!]!
+}
+
+input ListItemDisplay {
+  placeID: Int
+  cartAreaID: Int
+  personalNote: String
+  addedAt: String
+  tags: [String]!
+  name: String
+  visitCount: Int
+  venueType: String
+  status: String
+  openFor: [String!]!
+}
+
+enum ListName {
+  BEEN
+  TRY
+  UNSORTED
+}
+
+input listPlace {
+  cartAreaID: Int!
+  placeID: Int!
+  postID: Int
+  personalnote: String!
+  addedAt: String!
+  tags: String!
+  isFav: Boolean!
+}
+
+input listsPlace {
+  listPlace: listPlace!
+  listName: String!
+}
+
+type location {
+  lat: Float!
+  lng: Float!
+}
+
+input Location {
+  lat: Float!
+  lng: Float!
+}
+
+input locInfo {
+  lat: Float = 0
+  lng: Float = 0
+  formattedAddress: String = ""
+  city: String = ""
+  state: String = ""
+  country: String = ""
+  Inaccuracy: Int
+  zip: String!
+}
+
+type LocInfo {
+  lat: Float!
+  lng: Float!
+  formattedAddress: String!
+  city: String!
+  state: String!
+  country: String!
+  inaccuracy: Int
+  zip: String!
+}
+
+type menuItem {
+  ID: Int!
+  title: String!
+  description: String!
+  price: Float!
+  options: [option!]!
+  image: ImageSpec!
+  avgReadyTime: Float!
+  orderCount: Int!
+  sectionID: Int!
+  menuIDs: [Int!]!
+  unavailabilityReason: String!
+  menuItemPositionInfo: [menuItemPositionInfo]!
+  squareMenuItemID: String!
+  squareCategoryID: String!
+  squareVariationID: String!
+  cloverMenuItemID: String!
+  isSpecialRequestDisabled: Boolean!
+}
+
+input MenuItem {
+  ID: Int!
+  title: String!
+  description: String!
+  price: Float!
+  options: [Option!]!
+  image: imageSpec!
+  sectionID: Int!
+  menuIDs: [Int!]!
+  unavailabilityReason: String!
+  menuItemPositionInfo: [MenuItemPositionInfo!]!
+  isBombshell: Boolean!
+  squareMenuItemID: String!
+  squareCategoryID: String!
+  squareVariationID: String!
+  isSpecialRequestDisabled: Boolean!
+}
+
+type menuItemPositionInfo {
+  menuID: Int!
+  sectionID: Int!
+  priorityLevel: Int!
+}
+
+input MenuItemPositionInfo {
+  menuID: Int!
+  sectionID: Int!
+  priorityLevel: Int!
+}
+
+type Mutation {
+  deletePost(postid: String!): String!
+  createReview(receivedReview: ReviewParams!): ReviewID!
+  editReview(receivedReview: ReviewEdits!): Boolean!
+  deleteReview(reviewID: Int!): Boolean!
+  postTour(tour: TourParams!): TourID!
+  StoreChatMessage(chatMessage: ChatMessage!, bookingID: String, customerID: String!, guideID: String, placeID: String, cartAreaID: String, chatExpiryDate: String = ""): String!
+  bookFoodTourUsingPaymentIntent(tourId: String!, guideId: String!, paymentMode: String!): BookingInfo!
+  bookFoodTour(bookingParams: TourBookingParams!): BookingDetails!
+  updateBookingStatus(bookingId: Int!, bookingPaymentStatus: String!, tourStartDate: String!, tourEndDate: String!): String!
+  cancelFoodTour(bookingId: Int!, tourCancelDate: String!): String!
+  transferPayment(bookingId: Int!, guideId: String!, retryPayment: Boolean = false): String!
+  guideStartsTour(location: locInfo!, bookingId: Int!, verificationCode: String!): String!
+  customerStartsTour(bookingId: Int!, location: locInfo!, verifiedGuide: Boolean!): String!
+  guideFinishesTour(bookingId: Int!, location: locInfo!): String!
+  createSetupIntent(paymentMethod: PaymentMethod!): String!
+  chargeCustomer(bookingId: Int!, guideId: String!, retryCharge: Boolean = false): String!
+  determinePromotionQualification(placeName: String!, publishedFromLocation: locInfo!): PromotionQualification!
+  uploadGuideDocs(docUrls: DocumentContainer!): String!
+  claimOwnership(claimOwnershipParams: OwnershipDetails!): String!
+  createFoodOrder(foodOrder: FoodOrder!): foodOrder!
+  updateOrderStatus(orderID: Int!, orderStatus: OrderStatusName!, estimatedTime: Int, lastUpdated: String!, rejectionReason: String, deviceID: String): String!
+  updateOrderedItemStatus(orderID: Int!, itemID: Int!, orderedItemStatus: ItemStatusName!, lastUpdated: String!): String!
+  updateOwnerShipStatusOnDocUpload(placeID: Int!, cartAreaID: Int!): String!
+  uploadHoursAndMenuForPlace(placeID: Int!, cartAreaID: Int!, placeDescription: String, currency: String, dailyHours: [OpenHours!], menus: [String!], setupMenuItem: MenuItem, cuisines: String, deliveryService: Boolean, address: String, placeName: String, coverImage: imageSpec, locInfo: locInfo, printers: [String!], posConfig: [posConfig!], activePosConfig: String, frequentOrderReminder: Boolean, isZeroDeliveryFeeEnabled: Boolean): String!
+  updateOrderTakeOutStatus(placeID: Int!, cartAreaID: Int!, isAcceptingTakeOut: Boolean!): Int!
+  retryChargeForTakeOutOrder(orderID: Int!, retryCharge: Boolean!): String!
+  managePlaceMembership(managerID: Int!, placeID: Int!, cartAreaID: Int!, isAdding: Boolean!): String!
+  retryRefundForFoodOrder(orderID: Int!, retryRefund: Boolean!): String!
+  retryChargeForDeliveryOrder(orderID: Int!, retryCharge: Boolean!, paymentFor: PaymentFor!): String!
+  updateDeliveryAcceptingStatus(placeID: Int!, cartAreaID: Int!, isAcceptingDelivery: Boolean!): String!
+  editMenuItem(placeID: Int!, cartAreaID: Int!, menuItem: MenuItem, menuItems: [MenuItem!]): String!
+  deleteMenuItem(placeID: Int!, cartAreaID: Int!, menuItemID: Int!): String!
+  donateFoodCreditFromUnsavedCard(placeID: Int!, cartAreaID: Int!, donateAmount: Float!): String!
+  addFreeFoodCredit(placeID: Int!, cartAreaID: Int!, donateAmount: Float!, paymentMethodID: String = "", paymentIntentID: String = "", idempotenceID: String): Float!
+  cancelPlacedOrder(orderID: Int!, cancelledAt: String!): String!
+  paySetupFees(couponCode: String = "", paymentMethodID: String, currency: String, idempotenceID: String): String!
+  participateAsDriver(driverDetailsParams: DriverDetails!): String!
+  generateUserOTP(phoneNumber: String!): String!
+  verifyUserOTP(phoneNumber: String!, userOTP: String!): Boolean!
+  updateCommittedDriverDetails(commitmentParams: [CommitmentDetails!]!, currentLocation: Location, commitmentDate: String): String!
+  updateDriverPresentForService(currentTime: String!, currentLocation: Location!): String!
+  updateDriverResponseOnDeliveryRequest(orderID: Int!, isAccepted: Boolean!, updatedAt: String): String!
+  updateRouteTaskAsCompleted(taskID: Int!, taskCompletedAt: String!, currentLocation: Location, deliveryProofImageURL: String): String!
+  updateDriverLocationDuringService(currentLocation: Location!, updatedAt: String!): String!
+  updateDriverInactiveForService(driverID: Int!, userID: String = "", password: String = ""): String!
+  updateDeliveryAddress(addresses: [deliveryAddress!]!): String!
+  updateHolidayHoursOfPlace(placeID: Int!, cartAreaID: Int!, holidayHours: [String!]!): String!
+  updateEateryServiceStatus(placeID: Int!, cartAreaID: Int = 0, isEnablingOrder: Boolean!, userID: String = "", password: String = ""): String!
+  updateAvgOrderReadyTime(placeID: Int!, cartAreaID: Int!, avgOrderReadyTime: Float!): String!
+  updatePostAsFlagged(postID: Int!, reason: String = ""): String!
+  updateBlockListOfUser(blockedUsersList: [Int!]!): String!
+  manageRouteManually(userID: String!, password: String!, isCancelling: Boolean!, orderID: Int!, routeID: Int!, driverID: Int): String!
+  putDeliveryBanner(userID: String!, password: String!, banner: DeliveryBanner!): String!
+  createStripeAccountForDriver(driverID: Int!): String!
+  updateDriverConfortLevel(driverID: Int!, dropOffTime: Int!): String!
+  switchRoutes(userID: String!, password: String!, driverID: Int, isSwitchOn: Boolean!, startTime: String): String!
+  addDriverPaddingTime(paddingTime: Int!): DriverBreakTime!
+  reimburseFoodOrder(orderID: Int!, amount: Float!, description: String = ""): String!
+  updateDriverCommitments(commitmentParams: [DriverCommitmentParams!]!, currentLocation: Location): String!
+  cancelDriverPaddingTime: String!
+  updateOrderCardsReceivedStatus(orderIDs: [Int!]!, deviceID: String!): String!
+  deleteDriverScheduledIntervals(userID: String!, password: String!, driverID: Int!, weekNumber: Int!, day: String!, intervals: [Interval!]!): String!
+  updateSquareData(squareTokens: squareTokens!): String!
+  uploadOrderedItemSurvey(orderID: Int!, orderdItems: [MenuItem!]!): String!
+  updateScheduleCapacity(userID: String!, password: String!, capacity: scheduleCapacity!): String!
+  updateDriverSchedules(commitmentParams: [DriverCommitmentParams!]!, currentLocation: Location): String!
+  signUp(user: InputUser!): User
+  passwordSignIn(emailID: String!, password: String!): User
+  sendForgotPasswordOTP(emailID: String!): String!
+  verifyForgotPasswordOTP(otp: String!, emailNonce: String!): String!
+  sendEmailOTP(emailID: String!): String!
+  verifyEmailOTP(otp: String!, emailNonce: String!): String!
+  resetPassword(emailID: String!, password: String!): String!
+  dashboardAuth(userID: String!, password: String!): String!
+  assignPoolRoute(routeID: Int!, driverID: Int!): String!
+  updatePlace(place: PlaceDetailsInput!): String!
+  sendNotificationToDriversFromDashboard(userID: String!, password: String!, notificationTitle: String!, notificationMessage: String!, targetType: String!, notificationType: String!): String!
+  updateFoodOrder(orderID: Int!, squareOrderID: String, squareOrderStatus: String!, squareOrderFailureReason: String): String!
+  updateDeliveryAddressFromDashboard(userID: String!, password: String!, orderID: Int!, updatedAddress: String!): String!
+  deleteMenuItemsForMenu(placeID: Int!, cartAreaID: Int!, menuID: Int!): String!
+  deleteUserAccount: String!
+  addMultiplePlaceToList(listPlaces: [listsPlace!]!): String!
+  deleteMultiplePlaceFromList(listPlaces: [removePlaceFromList!]!): String!
+  updateCloverFoodOrder(orderID: Int!, cloverOrderID: String!): String!
+  updateCloverToken(cloverToken: cloverToken!): String!
+  createPlace(imageSpec: imageSpec!, location: locInfo!, placeName: String!, email: String!, placeType: String!, phoneNumber: String!): PlaceDetails!
+  createMerchantStripeAccount(stripeInfo: stripeInfo!, placeid: Int!): String!
+  transferMerchantPendingAmount(placeID: Int!): String!
+  updateDriverArrived(taskID: Int!, isArrived: Boolean!): String!
+  merchantTipAfterReview(orderID: Int!, amount: Float!): String!
+  testEndPoint(testValue: String!): String!
+  deleteCardInfo: String!
+}
+
+type OnlineDriverDetails {
+  driverID: Int!
+  driverName: String!
+  driverCommitments: [DriverCommitmentDetails!]!
+}
+
+type openHours {
+  day: String!
+  isOpen: Boolean!
+  timings: [timeSlotParams!]!
+  date: Float
+}
+
+input OpenHours {
+  day: String!
+  isOpen: Boolean!
+  timings: [TimeSlotParams!]!
+  date: Float
+}
+
+type option {
+  title: String!
+  isRequired: Boolean!
+  choices: [choice!]!
+  isSingleChoice: Boolean!
+  isVariation: Boolean!
+  minToSelect: Int!
+  maxToSelect: Int!
+  isReused: Boolean!
+  squareOptionID: String!
+  cloverOptionID: String!
+}
+
+input Option {
+  title: String!
+  isRequired: Boolean!
+  choices: [Choice!]!
+  isSingleChoice: Boolean!
+  isVariation: Boolean!
+  minToSelect: Int!
+  maxToSelect: Int!
+  isReused: Boolean!
+  squareOptionID: String!
+  cloverOptionID: String!
+}
+
+type orderID {
+  orderID: Int!
+}
+
+type orderItem {
+  ID: Int!
+  title: String!
+  description: String!
+  price: Float!
+  image: ImageSpec!
+  avgReadyTime: Float!
+  orderCount: Int!
+  quantity: Int!
+  choices: [choice!]!
+  specialRequest: String!
+  sectionName: String!
+  squareVariationID: String!
+  cloverMenuItemID: String!
+  isSpecialRequestDisabled: Boolean!
+}
+
+input OrderItem {
+  ID: Int!
+  title: String!
+  description: String!
+  price: Float!
+  image: imageSpec!
+  avgReadyTime: Float!
+  orderCount: Int!
+  quantity: Int!
+  choices: [Choice!]!
+  specialRequest: String!
+  isVariation: Boolean!
+  sectionName: String!
+  squareVariationID: String = ""
+  cloverMenuItemID: String = ""
+  isSpecialRequestDisabled: Boolean!
+}
+
+enum OrderStatusName {
+  created
+  accepted
+  rejected
+  ready
+  cancelled
+  delivered
+  pickedUp
+}
+
+enum OrderTypeName {
+  takeOut
+  delivery
+  freeFood
+}
+
+type OwnerInfo {
+  placeID: Int!
+  ownerID: Int!
+  stripeAccountID: String!
+  stripeDetailSubmitted: Boolean!
+  stripeChragesEnabled: Boolean!
+  totalTransferableAmount: Float!
+  totalTransferredAmount: Float!
+}
+
+input OwnershipDetails {
+  placeID: Int!
+  cartAreaID: Int!
+  businessEmail: String!
+  businessPhone: String!
+  website: String!
+  address: String!
+  city: String!
+  zip: Int!
+  state: String!
+  country: String!
+}
+
+enum PaymentFor {
+  owner
+  driver
+}
+
+input PaymentMethod {
+  id: String!
+  last4: String!
+  funding: String!
+  expYear: Int!
+  expMonth: Int!
+  country: String!
+  brand: String!
+}
+
+type PaymentMethodType {
+  id: String!
+  last4: String!
+  funding: String!
+  expYear: Int!
+  expMonth: Int!
+  country: String!
+  brand: String!
+}
+
+type PlaceDetails {
+  placeID: Int!
+  areaID: Int!
+  visitCount: Int!
+  name: String!
+  venueType: String!
+  locInfo: LocInfo!
+  imageSpecs: [ImageSpec]!
+  openFor: [String!]!
+  fullname: String!
+  username: String!
+  userImage: String!
+  userLevel: String!
+  discovererID: Int!
+  status: String!
+  numberOfBombshellDishes: Int!
+  description: String!
+  ownedBy: Int!
+  ownershipStatus: String!
+  businessEmail: String!
+  businessPhone: String!
+  businessWebsite: String!
+  dailyHours: [openHours!]!
+  isAcceptingTakeOut: Boolean!
+  currency: String!
+  menus: [String!]!
+  isFeatured: Boolean!
+  isFoodPod: Boolean!
+  isAcceptingDelivery: Boolean!
+  cuisines: String!
+  address: String!
+  foodCredit: Float!
+  hasFreeFoodFundToOrder: Boolean!
+  avgOrderReadyTime: Float!
+  userPendingAmount: Float!
+  stripeAccountID: String!
+  city: String!
+  zip: String!
+  state: String!
+  country: String!
+  holidayHours: [String!]!
+  deliveryService: Boolean!
+  pickupAreaID: Int!
+  availableDriversCount: Int!
+  coverImage: ImageSpec!
+  deliveryDistance: Int!
+  taxes: Taxes!
+  requireDeliveryRestriction: Boolean!
+  driverHandlingFee: Float!
+  driverHandlingMinimum: Float!
+  eateryHandlingFee: Float!
+  eateryHandlingMinimum: Float!
+  promotionalHandlingFee: Float!
+  promotionalMinimum: Float!
+  driverTipPercent: Float!
+  driverMinimumTip: Float!
+  eateryTipPercent: Float!
+  managerIDs: [Int!]!
+  exceptionalDeliveryCity: String!
+  placeType: String!
+  isSupportingPreorder: Boolean!
+  minHourInAdvance: Int!
+  openDates: String!
+  takeoutService: Boolean!
+  openingTimeRepetition: String!
+  posConfig: [PosConfig!]!
+  stripeDetailsSubmitted: Boolean!
+  stripeChragesEnabled: Boolean!
+  activePosConfig: String!
+  frequentOrderReminder: Boolean!
+  isZeroDeliveryFeeEnabled: Boolean!
+  isDefaultStripeID: Boolean!
+  autoAcceptOrders: Boolean!
+  appliedPlaceID: Int!
+  placeCreationError: String!
+  isSpecialRequestDisabled: Boolean!
+}
+
+input PlaceDetailsInput {
+  placeID: Int!
+  areaID: Int!
+  visitCount: Int
+  name: String
+  venueType: String
+  locInfo: locInfo
+  images: [imageSpec!]
+  openFor: [String!]
+  fullname: String
+  username: String
+  userImage: String
+  userLevel: String
+  discovererID: Int
+  status: String
+  numberOfBombshellDishes: Int
+  description: String
+  ownedBy: Int
+  ownershipStatus: String
+  businessEmail: String
+  businessPhone: String
+  businessWebsite: String
+  dailyHours: [OpenHours!]
+  isAcceptingTakeOut: Boolean
+  currency: String
+  menus: [String!]
+  isFeatured: Boolean
+  isFoodPod: Boolean
+  isAcceptingDelivery: Boolean
+  cuisines: String
+  address: String
+  foodCredit: Float
+  hasFreeFoodFundToOrder: Boolean
+  avgOrderReadyTime: Float
+  userPendingAmount: Float
+  stripeAccountID: String
+  city: String
+  zip: String
+  state: String
+  country: String
+  holidayHours: [String!]
+  deliveryService: Boolean
+  pickupAreaID: Int
+  availableDriversCount: Int
+  isSupportingPreorder: Boolean
+  minHourInAdvance: Int
+  openDates: String
+  takeoutService: Boolean
+  stripeDetailsSubmitted: Boolean
+  stripeChragesEnabled: Boolean
+  posConfig: [posConfig!]
+  activePosConfig: String
+  frequentOrderReminder: Boolean
+  autoAcceptOrders: Boolean
+  coverImage: imageSpec
+  isSpecialRequestDisabled: Boolean
+}
+
+type Places {
+  placeDetails: PlaceDetails!
+  posts: [RetrievedPost!]!
+}
+
+type PopularBombshellDishes {
+  placeID: Int!
+  cartAreaID: Int!
+  imageSpec: ImageSpec!
+}
+
+input posConfig {
+  posType: String!
+  menuID: Int!
+  menuIndex: Int!
+}
+
+type PosConfig {
+  posType: String!
+  menuID: Int!
+  menuIndex: Int!
+}
+
+input postalAddress {
+  line1: String!
+  city: String!
+  state: String!
+  zip: String!
+  country: String!
+}
+
+type PostalAddress {
+  line1: String
+  city: String
+  state: String
+  zip: String
+  country: String
+}
+
+type PromotionQualification {
+  promotionGranted: Boolean!
+  promotionDeniedReason: String!
+}
+
+type Query {
+  getUserProfile(id: String!, deviceID: String = ""): User!
+  hello: String!
+  getComments(postid: String!): [Comment]!
+  getReviews(tourid: Int!): [Review]!
+  getReviewsByCustomer(customerid: Int!): [Review]!
+  getChats(bookingID: String, customerID: String!, guideID: String, placeID: String, cartAreaID: String, lastMessage: String = ""): [String!]!
+  getTours(lat: Float, lng: Float, radius: Int, feedSource: FeedSourceName, feedLocation: Location, someoneID: Int): [RetrievedTour]!
+  getCartOfTheWeek(lat: Float!, lng: Float!, radius: Int): CartOfTheWeek!
+  getBookings(userType: String!, bookingId: Int = 0): [BookingDetails]!
+  getAttendingPeopleAvailability(tourId: Int!, tourStartTime: String!): Int!
+  getPosts(feedName: String, feedSource: FeedSourceName, feedLocation: Location, radius: Int, someoneID: Int, until: String, since: String, postID: Int): [RetrievedPost]!
+  getMenuItems(placeID: Int!, cartAreaID: Int!, menuID: Int): [menuItem!]!
+  getFoodOrders(userType: UserTypeName, placeID: Int, cartAreaID: Int, orderID: Int, filterBy: FilterOrderBy, filterParams: InputFilterParams): [foodOrder]!
+  getPlaceDetails(placeID: String!, cartAreaID: String!): Places!
+  getFeaturedResults(lat: Float!, lng: Float!, radius: Int!, noFilter: Boolean): featuredPlaces!
+  getUsersOnActiveChats(placeID: Int!, cartAreaID: Int!): [ChatUsers!]!
+  getPreviouslyOrderedPlaces(lat: Float!, lng: Float!, radius: Float, city: String): [PlaceDetails!]!
+  getFoodCreditBalance(placeID: Int!, cartAreaID: Int!): FreeFoodCredit!
+  getAvgOrderReadyTime(placeID: Int!, cartAreaID: Int!): Float!
+  getPayWallCouponDetails(couponCode: String!): Float!
+  getDriverProfile(driverID: Int!): DriverProfileDetails!
+  getDriverLocationDuringService(orderID: Int!): location!
+  getIntervalsForDriverCommitment(currentLocation: Location!): [AvailableIntervalDetails]!
+  getDeliveryAddresses(userID: Int!): [DeliveryAddress!]!
+  getPotentialDeliveryIntervals(placeID: Int!, deliveryLocInfo: locInfo!, scheduledDate: String, isPreorder: Boolean, soonestIntervalOnly: Boolean): DeliveryOrderPrerequisites!
+  getDeliveryRoute(routeID: Int!, routeStatus: String): [RouteTask]!
+  getDriverTrips(typeOfTrip: TypeOfTrip!): [DeliveryRoute]!
+  getLatestTrips(userID: String!, password: String!): [DeliveryRoute]!
+  getOnlineDrivers(userID: String!, password: String!): [OnlineDriverDetails!]!
+  getBlockListOfUser(userID: Int!): [BlockedUsersList!]!
+  getDeliveryBanner(lat: Float, lng: Float): deliveryBanner!
+  getReimbursementDetails(orderID: Int = 0, placeID: Int = 0): [Reimbursement]!
+  getDriverInfoForTheOrder(orderID: Int!): DriverContactInfo!
+  getScheduledDrivers(userID: String!, password: String!, weekNumber: Int!, day: String, pickupAreaID: Int): [ScheduledDriverInterval!]!
+  validateCode(code: String!, placeID: Int): CodeDetails!
+  getIntervalsForDriverSchedule(currentLocation: Location!): [AvailableIntervalDetails]!
+  getDriverProfileData(driverID: Int!): DriverProfileDetails!
+  getScheduleCapacity(userID: String!, password: String!, day: String!): [ScheduleCapacity!]!
+  getPrintersOfPlace(placeID: Int!, cartAreaID: Int!): [String!]!
+  getAvailablePoolRoutes(driverLocation: Location!): [DeliveryRoute]!
+  getMerchantTips(placeID: Int!, startDate: String!, endDate: String!): Float!
+  getactiveEateries(userID: String!, password: String!, pickupAreaID: Int!): [ActiveEateries!]!
+  getUniqueDeviceID(platform: String!): String!
+  getUserFreeFoodDetails(placeID: Int!): UserFreeFoodDetails!
+  getOwnerInfoPerPlace(placeID: Int!): OwnerInfo!
+  getPendingPlaceDetails(ownerID: Int!): [PlaceDetails!]!
+  getAppliedPlace(appliedPlaceID: Int!): PlaceDetails!
+  getAutoCompleteCuisineNames(cuisineName: String!): [String!]!
+}
+
+type Reimbursement {
+  id: Int!
+  orderID: Int!
+  amount: Float!
+  description: String!
+  reimbursedAt: String!
+  refundID: String!
+}
+
+input removePlaceFromList {
+  placeID: Int!
+  cartAreaID: Int!
+  listName: String!
+  postID: Int
+}
+
+type RetrievedPost {
+  postID: Int!
+  userID: Int!
+  userName: String!
+  fullName: String!
+  description: String!
+  placeName: String!
+  profileImage: String!
+  level: String!
+  personalNote: String!
+  timestamp: String!
+  lastUpdated: String!
+  venueType: String!
+  imageSpecs: [ImageSpec]!
+  locInfo: LocInfo!
+  placeID: Int!
+  cartareaID: Int!
+  status: String!
+  openFor: [String!]!
+  comment: Comment!
+  commentCount: Int!
+  hashtags: String!
+  likedImages: [LikedImage]!
+  promotionGranted: Boolean!
+  promotionDeniedReason: String!
+  beenPress: Int!
+  tryPress: Int!
+  isFlaggedPost: Boolean!
+  flagReason: String!
+  isAcceptingDelivery: Boolean!
+  isAcceptingTakeOut: Boolean!
+  holidayHours: [String!]!
+  dailyHours: [openHours!]!
+  ownedBy: Int!
+  deliveryDistance: Int!
+  menus: [String!]!
+  ExceptionalDeliveryCity: String!
+}
+
+type RetrievedTour {
+  tourID: Int!
+  guideID: Int!
+  guideName: String!
+  guideProfileImageURL: String!
+  description: String!
+  name: String!
+  startingLocInfo: LocInfo!
+  endingLocInfo: LocInfo!
+  startTime: String!
+  endTime: String!
+  minPeople: Int!
+  maxPeople: Int!
+  price: Float!
+  language: String!
+  route: String!
+  restrictions: String!
+  eateries: [RetrievedTourEatery!]!
+  tourBookingCount: Int!
+  tourCreationTime: String!
+  status: String
+  currency: String!
+  imageSpecs: [TourImageSpec!]!
+  coverImage: ImageSpec!
+  tourSeriesSchedule: String!
+}
+
+type RetrievedTourEatery {
+  tourID: Int!
+  placeID: Int!
+  cartAreaID: Int!
+  placeName: String!
+  description: String!
+  placeVenueType: String!
+  placeLocInfo: LocInfo!
+  cartVenueType: String!
+  cartLocInfo: LocInfo!
+  tastingCount: Int!
+  tastings: String!
+}
+
+type Review {
+  reviewID: Int!
+  tourID: Int!
+  customerID: Int!
+  ratingLevel: String!
+  description: String!
+  reviewTime: String!
+}
+
+input ReviewEdits {
+  reviewID: Int!
+  ratingLevel: String!
+  description: String!
+  reviewTime: String!
+}
+
+type ReviewID {
+  ReviewID: Int!
+}
+
+input ReviewParams {
+  tourID: Int!
+  ratingLevel: String!
+  description: String!
+  reviewTime: String!
+}
+
+type RouteTask {
+  taskID: Int!
+  placeID: Int!
+  placeName: String!
+  locInfo: LocInfo!
+  orderID: Int!
+  routeID: Int!
+  taskType: String!
+  isCompleted: Boolean!
+  taskCompletedAt: String!
+  orderReadyTime: Float!
+  taskStatus: String!
+  deliveryProofImageURL: String!
+  orderDetails: foodOrder!
+  isArrived: Boolean!
+}
+
+input scheduleCapacity {
+  pickupAreaID: Int!
+  requiredDriverCount: Int!
+  intervalStart: String!
+  intervalEnd: String!
+  day: String!
+  weekNumber: Int!
+}
+
+type ScheduleCapacity {
+  id: Int!
+  pickupAreaID: Int!
+  requiredDriverCount: Int!
+  intervalStart: String!
+  intervalEnd: String!
+}
+
+type ScheduledDriverInterval {
+  pickupAreaID: Int!
+  driverID: Int!
+  name: String!
+  intervalStart: String!
+  intervalEnd: String!
+  isInWaitList: Boolean!
+  driverPhone: String!
+}
+
+input screenParam {
+  stack: String!
+  screen: String!
+}
+
+type ScreenParam {
+  stack: String!
+  screen: String!
+}
+
+input squareTokens {
+  expirationTime: String!
+  refreshToken: String!
+  placeID: Int!
+  accessToken: String!
+  locationID: String!
+  clientID: String!
+  clientSecret: String!
+  merchantID: String!
+}
+
+type SquareTokens {
+  expirationTime: String!
+  refreshToken: String!
+  placeID: Int!
+  accessToken: String!
+  locationID: String!
+  clientID: String!
+  clientSecret: String!
+  merchantID: String!
+}
+
+type strIntervalTimestamp {
+  strIntervalStartTimestamp: String!
+  strIntervalEndTimestamp: String!
+  strSoonestIntervalStart: String!
+  strSoonestIntervalEnd: String!
+  strLongerIntervalStart: String!
+  strLongerIntervalEnd: String!
+}
+
+input StrIntervalTimestamp {
+  strIntervalStartTimestamp: String = ""
+  strIntervalEndTimestamp: String = ""
+  strSoonestIntervalStart: String!
+  strSoonestIntervalEnd: String!
+  strLongerIntervalStart: String!
+  strLongerIntervalEnd: String!
+}
+
+input stripeAddress {
+  city: String!
+  country: String!
+  state: String!
+  zip: String!
+  line1: String!
+  line2: String!
+}
+
+input stripeBusinessProfile {
+  mcc: String!
+  name: String!
+  productDescriptions: String!
+  supportAddress: stripeAddress!
+  supportEmail: String!
+  supportPhone: String!
+  supportURL: String!
+  url: String!
+}
+
+input stripeCompany {
+  address: stripeAddress!
+  name: String!
+  phone: String!
+  taxID: String!
+  structure: String!
+}
+
+input stripeDOB {
+  day: Int!
+  month: Int!
+  year: Int!
+}
+
+input stripeExternalAccount {
+  country: String!
+  currency: String!
+  accountHolderName: String!
+  accountHolderType: String!
+  routingNumber: String!
+  accountNumber: String!
+}
+
+input stripeInfo {
+  type: String!
+  email: String!
+  businessType: String!
+  company: stripeCompany!
+  businessProfile: stripeBusinessProfile!
+  externalAccount: stripeExternalAccount!
+  person: stripePerson!
+  representative: stripeRepresentative!
+}
+
+input stripePerson {
+  address: stripeAddress!
+  dob: stripeDOB!
+  email: String!
+  firstName: String!
+  lastName: String!
+  idNumber: String!
+  phone: String!
+  relationship: stripeRelationship!
+}
+
+input stripeRelationship {
+  executive: Boolean!
+  director: Boolean!
+  owner: Boolean!
+  percentOwnership: Float!
+  representative: Boolean!
+  title: String!
+}
+
+input stripeRepresentative {
+  firstName: String!
+  lastName: String!
+  relationship: String!
+  dob: stripeDOB!
+  socialSecurityNumber: String!
+  phoneNumber: String!
+}
+
+type Taxes {
+  percent: Float!
+}
+
+type timeSlotParams {
+  openTime: String!
+  closeTime: String!
+}
+
+input TimeSlotParams {
+  openTime: String!
+  closeTime: String!
+}
+
+input TourBookingParams {
+  tourId: Int!
+  peopleAttending: Int!
+  paymentMethodId: String!
+  tourBookingDate: String!
+  bookedTourStartTime: String!
+  bookedTourEndTime: String!
+}
+
+input TourEatery {
+  placeID: Int!
+  cartAreaID: Int!
+  placeName: String!
+  imageSpecs: [imageSpec!]!
+  locInfo: locInfo!
+  description: String!
+  clustered: Boolean!
+  venueType: String!
+  tastingCount: Int!
+  tastings: String!
+}
+
+type TourID {
+  tourID: Int!
+}
+
+type TourImageSpec {
+  imageID: Int!
+  imagePath: String!
+  placeID: Int!
+  cartAreaID: Int!
+  postID: Int!
+  lat: Float!
+  lng: Float!
+  width: Float!
+  height: Float!
+  timestamp: String!
+  dishName: String!
+  bombshellCount: Int!
+  tourID: Int!
+  userID: Int!
+}
+
+input TourParams {
+  name: String!
+  description: String!
+  startingLocInfo: locInfo!
+  endingLocInfo: locInfo!
+  startTime: String!
+  endTime: String!
+  minPeople: Int!
+  maxPeople: Int!
+  price: Float!
+  language: String!
+  route: String!
+  restrictions: String!
+  eateries: [TourEatery!]!
+  currency: String!
+  tourCreationTime: String!
+  coverImage: imageSpec!
+  tourSeriesSchedule: String!
+}
+
+enum TypeOfTrip {
+  Past
+  Ongoing
+  Upcoming
+  Pool
+}
+
+enum UnitType {
+  percent
+  fixed
+}
+
+type User {
+  name: String
+  profileImageURL: String
+  posts: Int
+  discovered: Int
+  been: Int
+  try: Int
+  followers: Int
+  following: Int
+  userName: String
+  city: String
+  state: String
+  country: String
+  level: String
+  deviceToken: String
+  devicePlatform: String
+  paymentMethod: PaymentMethodType
+  stripeAccountID: String
+  isOwner: Boolean
+  isManager: Boolean
+  LoginEmail: String
+  LoginPhone: String
+  AlternateEmail: String
+  AlternatePhone: String
+  hasPaidForSetup: Boolean
+  paywallPaymentIntentID: String
+  isDriver: Boolean
+  availableCreditAmount: Float
+  usedCreditAmount: Float
+  userID: Int
+  sessionPassword: String
+  isEmailVerified: Boolean
+  squareTokens: SquareTokens
+  cloverTokens: CloverTokens
+  notifChannelIDVersion: String
+  isAdmin: Boolean!
+}
+
+type UserCredentials {
+  userID: Int
+  sessionPassword: String
+}
+
+type UserFreeFoodDetails {
+  weekOrderCount: Int!
+  sixMonthsOrderCount: Int!
+  lastOrderedOn: String!
+}
+
+enum UserTypeName {
+  customer
+  owner
+}
+
+type WeeklySlot {
+  weekNumber: Int!
+  year: Int!
+  dailySlots: [DailySlot!]!
+}
