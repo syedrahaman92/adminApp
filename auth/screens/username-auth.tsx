@@ -11,11 +11,12 @@ import {Button, Text, TextInput} from "react-native-paper"
 import {ActionLoggedIn} from "../actions/redux"
 import {authCondition} from "../../common/libs/task-queue/conditions"
 import {config as c} from "../../config"
+import {SafeAreaView} from "react-native-safe-area-context"
 
 export function UsernameAuthScreen({navigation}: any) {
   const dispatch = useAppDispatch()
   const currTheme = useTheme()
-  const [signInEmail, setSignInEmail] = useState("")
+  const [username, setUsername] = useState("")
   const [signInPassword, setSignInPassword] = useState("")
   const [isSecure, setIsSecure] = useState(true)
   const [loginStatus, setLoginStatus] = useState<"idle" | "processing" | "success" | "failed">(
@@ -23,16 +24,16 @@ export function UsernameAuthScreen({navigation}: any) {
   )
 
   const credVerification = () => {
-    if (signInEmail && signInPassword) {
+    if (username && signInPassword) {
       setLoginStatus("processing")
       Keyboard.dismiss()
 
-      if (signInEmail === c.username && signInPassword === c.password) {
+      if (username === c.username && signInPassword === c.password) {
         setLoginStatus("success")
         store(
           "auth",
           Object.assign(dbState.auth, {
-            userID: signInEmail,
+            userID: username,
             sessionPassword: signInPassword,
           })
         )
@@ -47,16 +48,18 @@ export function UsernameAuthScreen({navigation}: any) {
   }
 
   return (
-    <>
+    <SafeAreaView style={{flex: 1}}>
       <OurAppBarHeader title="Sign in" hasBackAction={false} />
-      <KeyboardAwareScrollView keyboardShouldPersistTaps={"handled"}>
-        <View style={[ss.flx_i, ss.jcc, ss.phxs]}>
+      <KeyboardAwareScrollView
+        keyboardShouldPersistTaps={"handled"}
+        contentContainerStyle={{flexGrow: 1}}>
+        <View style={[ss.flx_i, ss.jcc]}>
           <TextInput
-            label={"Username/Email"}
+            label={"Username"}
             keyboardType="email-address"
             autoComplete="off"
-            value={signInEmail}
-            onChangeText={signInEmail => setSignInEmail(signInEmail)}
+            value={username}
+            onChangeText={username => setUsername(username)}
             style={[ss.mh, ss.mt]}
             mode="outlined"
           />
@@ -70,7 +73,7 @@ export function UsernameAuthScreen({navigation}: any) {
             secureTextEntry={isSecure}
             right={
               <TextInput.Icon
-                name="eye"
+                icon="eye"
                 onPress={() => {
                   if (isSecure === true) {
                     setIsSecure(false)
@@ -102,7 +105,7 @@ export function UsernameAuthScreen({navigation}: any) {
             style={[ss.mh, ss.mt]}
             onPress={credVerification}
             disabled={
-              signInEmail.length === 0 ||
+              username.length === 0 ||
               signInPassword.length === 0 ||
               loginStatus === "processing"
                 ? true
@@ -112,6 +115,6 @@ export function UsernameAuthScreen({navigation}: any) {
           </Button>
         </View>
       </KeyboardAwareScrollView>
-    </>
+    </SafeAreaView>
   )
 }
