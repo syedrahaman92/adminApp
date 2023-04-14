@@ -1,17 +1,14 @@
 import React from "react"
 import {FlatList, StyleSheet, View} from "react-native"
 import {Appbar, Text} from "react-native-paper"
-import {ScheduledDriverInterval} from "./types"
+import {ScheduledDriverInterval} from "../types"
 import {ActivityIndicator} from "react-native-paper"
-import {useDriverIntervals} from "./hooks/queries"
-import {DriverIntervalsCard} from "./components/driver-intervals-card"
-import {OurAppBarHeader} from "../common/components/our-app-bar-header"
-import {BottomTabScreenProps} from "@react-navigation/bottom-tabs"
-import {MainScreenParams} from "../navigation/types"
+import {useDriverIntervals} from "../hooks/queries"
+import {DriverIntervalsCard} from "../components/driver-intervals-card"
+import {OurAppBarHeader} from "../../common/components/our-app-bar-header"
+import {SafeAreaView} from "react-native-safe-area-context"
 
-export default function DriversScreen({
-  navigation,
-}: BottomTabScreenProps<MainScreenParams, "Drivers">) {
+export default function ScheduleDrivers({navigation}: any) {
   const {isLoading, isError, data, error, refetch} = useDriverIntervals()
 
   React.useEffect(() => {
@@ -46,8 +43,8 @@ export default function DriversScreen({
   }
 
   return (
-    <View style={styles.container}>
-      <OurAppBarHeader title="Drivers" hasBackAction={false}>
+    <SafeAreaView style={styles.container} edges={["bottom", "left", "right"]}>
+      <OurAppBarHeader title="Drivers" hasBackAction={true}>
         <Appbar.Action icon="magnify" onPress={() => {}} />
       </OurAppBarHeader>
       {data?.length ? (
@@ -63,7 +60,7 @@ export default function DriversScreen({
           <Text style={{textAlign: "center"}}>No drivers</Text>
         </View>
       )}
-    </View>
+    </SafeAreaView>
   )
 }
 

@@ -9,12 +9,13 @@ import * as React from "react"
 import {useTheme} from "../common/util"
 import ModalScreen from "../modals/modal-screen"
 import {RoutesStack} from "../routes"
-import DriversScreen from "../drivers/drivers"
 import {RootStackScreenParams, MainScreenParams} from "./types"
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import {useAppSelector} from "../common/hooks"
 import {AuthNavigator} from "../auth"
+import {MoreStack} from "../more"
+import {DriverStack} from "../drivers"
 
 /**
  * A root stack navigator is often used for displaying modals on top of all other content.
@@ -72,9 +73,17 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Drivers"
-        component={DriversScreen}
+        component={DriverStack}
         options={{
           tabBarIcon: ({color}) => <TabBarIcon name="moped-outline" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="MoreStack"
+        component={MoreStack}
+        options={{
+          tabBarIcon: ({color}) => <TabBarIcon name="menu" color={color} />,
+          title: "More",
         }}
       />
     </BottomTab.Navigator>

@@ -24,7 +24,7 @@ export function OurAppBarHeader(props: OurAppBarHeaderProps) {
           backgroundColor: currTheme.colors.background,
         },
       ]}
-      statusBarHeight={0}>
+      statusBarHeight={20}>
       <Appbar.BackAction
         size={20}
         style={[s.BackAction, props.hasBackAction ? {} : {width: 0}]}

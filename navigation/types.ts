@@ -8,4 +8,5 @@ export type RootStackScreenParams = {
 export type MainScreenParams = {
   RoutesStack: undefined
   Drivers: undefined
+  MoreStack: undefined
 }

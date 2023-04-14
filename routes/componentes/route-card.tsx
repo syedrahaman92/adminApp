@@ -81,15 +81,17 @@ export function RouteCard({route}: Props) {
           <Text variant="titleLarge" style={{marginHorizontal: 8}}>
             |
           </Text>
-          {route.driverID ? (
-            <Text variant="bodyMedium" style={{}}>
-              Driver: {route.driverName}
-            </Text>
-          ) : (
-            <Text variant="bodyMedium" style={{color: colors.error}}>
-              No driver assigned
-            </Text>
-          )}
+          <View style={{flex: 1}}>
+            {route.driverID ? (
+              <Text variant="bodyMedium" style={{}}>
+                Driver: {route.driverName}
+              </Text>
+            ) : (
+              <Text variant="bodyMedium" style={{color: colors.error}}>
+                No driver assigned
+              </Text>
+            )}
+          </View>
         </View>
         {uniqueTasks.map(showOrders)}
       </Card.Content>

@@ -4,7 +4,6 @@ import {useAppDispatch} from "../../common/hooks"
 import {useTheme} from "../../common/util"
 import {dbState} from "../../common/state"
 import {store} from "../../common/db"
-import {OurAppBarHeader} from "../../common/components/our-app-bar-header"
 import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view"
 import {ss} from "../../common/styles"
 import {Button, Text, TextInput} from "react-native-paper"
@@ -49,11 +48,13 @@ export function UsernameAuthScreen({navigation}: any) {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <OurAppBarHeader title="Sign in" hasBackAction={false} />
       <KeyboardAwareScrollView
         keyboardShouldPersistTaps={"handled"}
         contentContainerStyle={{flexGrow: 1}}>
         <View style={[ss.flx_i, ss.jcc]}>
+          <Text variant="labelLarge" style={[ss.mh, ss.mt]}>
+            Sign In
+          </Text>
           <TextInput
             label={"Username"}
             keyboardType="email-address"

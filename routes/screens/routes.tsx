@@ -12,7 +12,7 @@ import {SafeAreaView} from "react-native-safe-area-context"
 export function Routes() {
   const routesQ = useRecentRoutes()
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, marginTop: 16}} edges={["top", "left", "right"]}>
       <Tabs
         // defaultIndex={0} // default = 0
         uppercase={false} // true/false | default=true | labels are uppercase
