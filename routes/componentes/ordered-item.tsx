@@ -13,7 +13,6 @@ type Props = {
 }
 
 export function OrderedItem(props: Props) {
-  console.log("orderedItem..", props.orderedItem.price, props.orderedItem.quantity)
   const {colors} = useTheme()
   let options = ""
   for (let i = 0; i < props.orderedItem.choices?.length; i++) {
