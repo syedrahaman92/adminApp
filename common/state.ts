@@ -1,4 +1,5 @@
 import {authDB, authRedux} from "../auth/state"
+import {routRedux} from "../routes/state"
 // import {profileDB, profileRedux} from "../profile/state"
 import {NotificationAction} from "./libs/logger/types"
 import {tasksDB} from "./libs/task-queue/state"
@@ -50,6 +51,7 @@ export const defaultReduxState = {
     currNotificationAction: undefined as NotificationAction,
     currNotificationLevel: "Error",
   },
+  route: routRedux,
 }
 
 // state that's needed both inside and outside of UI.

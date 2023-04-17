@@ -9,7 +9,7 @@ import {RoutesContent} from "../componentes/routes-content"
 import {ss} from "../../common/styles"
 import {SafeAreaView} from "react-native-safe-area-context"
 
-export function Routes() {
+export function Routes({navigation}: any) {
   const routesQ = useRecentRoutes()
   return (
     <SafeAreaView style={{flex: 1, marginTop: 16}} edges={["top", "left", "right"]}>
@@ -33,7 +33,7 @@ export function Routes() {
                 <ActivityIndicator />
               </View>
             ) : routesQ.data ? (
-              <RoutesContent data={routesQ.data} />
+              <RoutesContent data={routesQ.data} navigation={navigation} />
             ) : null}
           </View>
         </TabScreen>

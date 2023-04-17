@@ -16,8 +16,8 @@ export async function getRecentRoutes(): Promise<{data: {getLatestTrips: Deliver
         schedulingIntervalEnd,cutoffTime,deliveryLocation{
           lat,lng,formattedAddress
         },cutoffTime,driverTotalEarnings,routeTasks{taskID,placeID,placeName,locInfo{lat,lng,formattedAddress},orderID,routeID,taskType,isCompleted,taskCompletedAt,orderReadyTime,taskStatus,deliveryProofImageURL,orderDetails{deliveryAddress,failureReason,receivedByDevices,status,isPreorder,
-          customerName,rejectionReason,orderID,placeID,cartAreaID,placeName,totalPrice,paymentMethodID,phone,estimatedTime,estimatedPickupTime,pickedupAt,cancelledAt,deliveredAt,estimatedTimeDifference,readyAt,rejectedAt,acceptedAt,createdAt,routeID,driverID,orderType,items{
-            image{timestamp,height},title,ID,price,avgReadyTime,orderCount,
+          customerName,rejectionReason,orderID,placeID,cartAreaID,placeName,totalPrice,paymentMethodID,phone,estimatedTime,estimatedPickupTime,pickedupAt,cancelledAt,deliveredAt,estimatedTimeDifference,readyAt,rejectedAt,acceptedAt,createdAt,routeID,driverID,orderType,currency,items{
+            image{timestamp,height},title,ID,price,quantity,avgReadyTime,orderCount,
           }
           
         }},

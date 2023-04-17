@@ -1,11 +1,6 @@
 import React from "react"
-import {FlatList, StyleSheet, View} from "react-native"
-import {Appbar, List, Text} from "react-native-paper"
-import {ScheduledDriverInterval} from "../types"
-import {ActivityIndicator} from "react-native-paper"
-import {useDriverIntervals} from "../hooks/queries"
-import {DriverIntervalsCard} from "../components/driver-intervals-card"
-import {OurAppBarHeader} from "../../common/components/our-app-bar-header"
+import {View} from "react-native"
+import {List, Text} from "react-native-paper"
 import {SafeAreaView} from "react-native-safe-area-context"
 import {useTheme} from "../../common/util"
 

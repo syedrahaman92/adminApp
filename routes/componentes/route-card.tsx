@@ -6,16 +6,25 @@ import {DeliveryRoute, RouteTask} from "../types"
 import {useTheme} from "../../common/util"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import moment from "moment"
+import {useAppDispatch} from "../../common/hooks"
+import {ActionSetRouteDetails} from "../actions/redux"
 
 type Props = {
   route: DeliveryRoute
+  navigation: any
 }
 
-export function RouteCard({route}: Props) {
+export function RouteCard({route, navigation}: Props) {
+  const dispatch = useAppDispatch()
   const {colors} = useTheme()
   const uniqueTasks = [
     ...new Map(route.routeTasks.map(item => [item["orderID"], item])).values(),
   ]
+
+  const openRouteDetails = () => {
+    dispatch(new ActionSetRouteDetails(route))
+    navigation.navigate("RouteDetails")
+  }
 
   const showOrders = (item: RouteTask, index: number) => {
     const delayTime = () => {
@@ -74,7 +83,9 @@ export function RouteCard({route}: Props) {
     )
   }
   return (
-    <Card style={{marginHorizontal: 16, marginTop: 8, borderRadius: 16}}>
+    <Card
+      style={{marginHorizontal: 16, marginTop: 8, borderRadius: 16}}
+      onPress={openRouteDetails}>
       <Card.Content>
         <View style={{flexDirection: "row", alignItems: "center"}}>
           <Text variant="titleMedium">Route: {route.routeID}</Text>
